@@ -4,7 +4,7 @@ Or LENDD for short.
 
 ## Introduction
 
-Read the explanation article here: [TODO]
+Read the explanation article [here](https://victorbush.com/2018/04/lets-encrypt-nginx-dns-docker/).
 
 This repository exists solely to document the process of using NGINX and Let's Encrypt together in a Docker container.
 
