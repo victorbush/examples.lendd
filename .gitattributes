@@ -1,0 +1,5 @@
+mount/etc/dehydrated/config eol=lf
+mount/etc/dehydrated/dehydrated.hooks.sh eol=lf
+mount/etc/dehydrated/domains.txt eol=lf
+src/crontab eol=lf
+src/startup.sh eol=lf

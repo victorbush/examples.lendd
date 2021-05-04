@@ -1,4 +1,4 @@
-FROM nginx:1.13.9
+FROM nginx:1.20.0
 
 # Setup directories
 RUN mkdir -p /app/dehydrated
@@ -14,7 +14,7 @@ RUN mkdir -p /etc/dehydrated
 # python-setuptools     Contains easy_install, which is used to install pip.
 # ---------------------------------------------------------
 RUN apt-get update
-RUN apt-get install -y ca-certificates cron curl git python-setuptools
+RUN apt-get install -y ca-certificates cron curl git python-setuptools python-pip
 
 # ---------------------------------------------------------
 # Install the dehydrated client. Note this checks out a 
@@ -29,7 +29,6 @@ RUN git checkout 946e571
 #   - requests
 #   - dns-lexicon (allows interaction with cloudflare api)
 # ---------------------------------------------------------
-RUN easy_install pip
 RUN pip install requests[security]
 RUN pip install dns-lexicon
 
@@ -42,6 +41,7 @@ RUN touch /var/log/cron
 
 # Copy startup script
 COPY ./startup.sh /app/startup.sh
+RUN chmod +x /app/startup.sh
 
 # Startup command
 CMD [ "/app/startup.sh" ]

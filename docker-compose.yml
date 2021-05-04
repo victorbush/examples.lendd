@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  revprox:
+    container_name: revprox
+    build: ./src
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - PROVIDER=cloudflare
+      - LEXICON_CLOUDFLARE_USERNAME=yourcloudflarelogin@example.com
+      - LEXICON_CLOUDFLARE_TOKEN=1231231231321321321321321321321321
+    volumes:
+      - ./mount/etc/dehydrated:/etc/dehydrated
+      - ./mount/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./mount/etc/nginx/certs:/etc/nginx/certs
+      - ./mount/etc/nginx/conf.d:/etc/nginx/conf.d
+      - ./mount/etc/nginx/include:/etc/nginx/include
+    restart: unless-stopped

@@ -16,11 +16,17 @@ This repository exists solely to document the process of using NGINX and Let's E
     * Update `mount/etc/dehydrated/dehydrated.hooks.sh` to perform any desired actions.
     * Update `mount/etc/dehydrated/config` with your email address and any other desired settings.
 3. Configure NGINX as needed (beyond the scope of this example).
-3. Build the Docker image:
+4. Build and run the image:
+```
+docker-compose up -d
+```
+
+  * Or build and run manually:
+
 ```
 docker build -t nginx-dehydrated -f ./src/Dockerfile .
 ```
-4. Create and run a Docker container:
+
 ```
 docker run \
     -d \
@@ -35,3 +41,8 @@ docker run \
     -v /host/path/to/mount/etc/nginx/conf.d:/etc/nginx/conf.d \
     nginx-dehydrated
 ```
+
+## Notes
+
+* Make sure the dehydrated script has execute permissions.
+* Cron logs are sent to stdout to allow monitoring with `docker logs`.

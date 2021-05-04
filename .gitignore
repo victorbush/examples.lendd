@@ -1,0 +1,4 @@
+mount/etc/dehydrated/accounts
+mount/etc/dehydrated/certs
+mount/etc/dehydrated/chains
+mount/etc/nginx/certs
