@@ -45,4 +45,3 @@ docker run \
 ## Notes
 
 * Make sure the dehydrated script has execute permissions.
-* Cron logs are sent to stdout to allow monitoring with `docker logs`.
